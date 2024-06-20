@@ -2,7 +2,7 @@ Blockly.Blocks['forward'] = {
     init: function() {
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_CENTRE)
-            .appendField("bewegen");
+            .appendField("move");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(260);
@@ -14,7 +14,7 @@ Blockly.Blocks['left'] = {
     init: function() {
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_CENTRE)
-            .appendField("links drehen");
+            .appendField("turnLeft");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(260);
@@ -26,7 +26,7 @@ Blockly.Blocks['right'] = {
     init: function() {
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_CENTRE)
-            .appendField("rechts drehen");
+            .appendField("turnRight");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(260);
@@ -38,7 +38,7 @@ Blockly.Blocks['put'] = {
     init: function() {
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_CENTRE)
-            .appendField("lege Blatt");
+            .appendField("putLeaf");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(260);
@@ -50,7 +50,7 @@ Blockly.Blocks['take'] = {
     init: function() {
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_CENTRE)
-            .appendField("nimm Blatt");
+            .appendField("takeLeaf");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(260);
@@ -63,7 +63,7 @@ Blockly.Blocks['onLeaf'] = {
     init: function() {
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_CENTRE)
-            .appendField("auf Blatt");
+            .appendField("onLeaf");
         this.setOutput(true, null);
         this.setColour(330);
         this.setTooltip("Wahr, wenn ein Kleeblatt auf dem Feld liegt");
@@ -74,7 +74,7 @@ Blockly.Blocks['treeFront'] = {
     init: function() {
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_CENTRE)
-            .appendField("Baum voraus");
+            .appendField("treeFront");
         this.setOutput(true, null);
         this.setColour(330);
         this.setTooltip("Wahr, wenn vor Kara ein Baumstumpf ist");
@@ -85,7 +85,7 @@ Blockly.Blocks['treeLeft'] = {
     init: function() {
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_CENTRE)
-            .appendField("Baum links");
+            .appendField("treeLeft");
         this.setOutput(true, null);
         this.setColour(330);
         this.setTooltip("Wahr, wenn links von Kara ein Baumstumpf ist");
@@ -96,7 +96,7 @@ Blockly.Blocks['treeRight'] = {
     init: function() {
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_CENTRE)
-            .appendField("Baum rechts");
+            .appendField("treeRight");
         this.setOutput(true, null);
         this.setColour(330);
         this.setTooltip("Wahr, wenn rechts von Kara ein Baumstumpf ist");
@@ -107,7 +107,7 @@ Blockly.Blocks['mushroomFront'] = {
     init: function() {
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_CENTRE)
-            .appendField("Pilz voraus");
+            .appendField("mushroomFront");
         this.setOutput(true, null);
         this.setColour(330);
         this.setTooltip("Wahr, wenn vor Kara ein Pilz ist");
