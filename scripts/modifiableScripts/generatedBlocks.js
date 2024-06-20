@@ -117,47 +117,47 @@ Blockly.Blocks['mushroomFront'] = {
 
 //Generator stub
 
-Blockly.JavaScript['forward'] = function(block) {
-    var code = 'move();\n';
+Blockly.Python['forward'] = function(block) {
+    var code = 'move()\n';
     return code;
 };
-Blockly.JavaScript['left'] = function(block) {
+Blockly.Python['left'] = function(block) {
 
-    var code = 'turnLeft();\n';
+    var code = 'turnLeft\n';
     return code;
 };
-Blockly.JavaScript['right'] = function(block) {
-    var code = 'turnRight();\n';
+Blockly.Python['right'] = function(block) {
+    var code = 'turnRight\n';
     return code;
 };
-Blockly.JavaScript['put'] = function(block) {
-    var code = 'putLeaf();\n';
+Blockly.Python['put'] = function(block) {
+    var code = 'putLeaf\n';
     return code;
 };
-Blockly.JavaScript['take'] = function(block) {
-    var code = 'takeLeaf();\n';
+Blockly.Python['take'] = function(block) {
+    var code = 'takeLeaf\n';
     return code;
 };
 //Generator stub: Test-Befehle
-Blockly.JavaScript['onLeaf'] = function(block) {
+Blockly.Python['onLeaf'] = function(block) {
     var code = 'onLeaf()';
-    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+    return [code, Blockly.Python.ORDER_ATOMIC];
 };
-Blockly.JavaScript['treeFront'] = function(block) {
+Blockly.Python['treeFront'] = function(block) {
     var code = 'treeFront()';
-    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+    return [code, Blockly.Python.ORDER_ATOMIC];
 };
-Blockly.JavaScript['treeLeft'] = function(block) {
+Blockly.Python['treeLeft'] = function(block) {
     var code = 'treeLeft()';
-    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+    return [code, Blockly.Python.ORDER_ATOMIC];
 };
-Blockly.JavaScript['treeRight'] = function(block) {
+Blockly.Python['treeRight'] = function(block) {
     var code = 'treeRight()';
-    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+    return [code, Blockly.Python.ORDER_ATOMIC];
 };
-Blockly.JavaScript['mushroomFront'] = function(block) {
+Blockly.Python['mushroomFront'] = function(block) {
     var code = 'mushroomFront()';
-    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+    return [code, Blockly.Python.ORDER_ATOMIC];
 };
 
 // interpreter

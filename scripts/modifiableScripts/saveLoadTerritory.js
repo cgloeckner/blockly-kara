@@ -9,20 +9,24 @@ function saveFile(saveTarget) {
 
     switch (saveTarget) {
         case "code":
-            content = saveCode();
-            fileName = "blockly_kara.code.txt";
+            // create Python code
+            var content = Blockly.Python.workspaceToCode(Blockly.mainWorkspace)
+            content = content.replace(/\n/g, "%0D%0A")
+            fileName = "blockly_kara.py";
             break;
         case "territory":
-            content = saveTerritory();
+            content = Base64.encode(saveTerritory());
             fileName = "blockly_kara.territory.txt";
             break;
         default:
             alert("Fehler beim Speichern der Datei!");
     }
 
+    console.log(content)
+
     if (content !== "" && fileName !== "") {
         var element = document.createElement('a');
-        element.setAttribute("href", "data:text/plain;charset=utf-8," + Base64.encode(content));
+        element.setAttribute("href", "data:text/plain;charset=utf-8," + content);
         element.setAttribute("download", fileName);
         element.style.display = "none";
         document.body.appendChild(element);
