@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="icon" href="images/kara_bottom.png">
+    <link rel="stylesheet" type="text/css" href="./index.css">
+    <script src="./scripts/staticScripts/layout.js"></script>
+    <script src="./scripts/staticScripts/main.js"></script>
+    <script src="./scripts/staticScripts/base64.js"></script>
+    <script src="./scripts/staticScripts/google-blockly-5.20210325.1-5-gfc6a1be/google-blockly-fc6a1be/blockly_compressed.js"></script>
+    <script src="./scripts/staticScripts/google-blockly-5.20210325.1-5-gfc6a1be/google-blockly-fc6a1be/blocks_compressed.js"></script>
+    <script src="./scripts/staticScripts/google-blockly-5.20210325.1-5-gfc6a1be/google-blockly-fc6a1be/javascript_compressed.js"></script>
+    <script src="./scripts/staticScripts/google-blockly-5.20210325.1-5-gfc6a1be/google-blockly-fc6a1be/msg/js/de.js"></script>
+    <script src="./scripts/staticScripts/NeilFraser-JS-Interpreter-cb740ed/NeilFraser-JS-Interpreter-cb740ed/acorn.js"></script>
+    <script src="./scripts/staticScripts/NeilFraser-JS-Interpreter-cb740ed/NeilFraser-JS-Interpreter-cb740ed/interpreter.js"></script>
+    <script src="./scripts/staticScripts/workspace.js"></script>
+    <script src="./scripts/staticScripts/controls.js"></script>
+    <script src="./scripts/modifiableScripts/generatedBlocks.js"></script>
+    <script src="./scripts/modifiableScripts/CellContent.js"></script>
+    <script src="./scripts/modifiableScripts/actorMethods.js"></script>
+    <script src="./scripts/modifiableScripts/saveLoadTerritory.js"></script>
+    <script src="./scripts/modifiableScripts/mainModifiable.js"></script>
+    <meta charset="utf-8">
+    <title> Blockly Kara Simulator </title>
+</head>
+
+<body id="body" onload="loadPage()">
+    <div class="root" id="root">
+        <div class="titelDiv" id="titelDiv">
+            <img class="titel" id="titel" src="./images/titel.png" alt="Titel">
+        </div>
+        <div class="wrapper" id="wrapper">
+            <div class="leftbox" id="leftbox">
+                <div class="buttons-top">
+                    <button id="saveButton" title="Welt speichern" onClick="saveFile('territory')"><img src="./images/speichern.png"></button>
+                    <button id="loadButton" title="Welt laden" onClick="loadFile('territory')"><img src="./images/laden.png"></button>
+                    <input type="file" id="file-input-territory" />
+                    <div class="controls">
+                        <input id="slider" title="20" type="range" min="0" max="100" value="20" step="5" oninput="setSpeed(this.value)" />
+                        <button id="playButton" title="Ausführen" onClick="runCode()"><img src="./images/play.png"></button>
+                        <button id="stopButton" title="Stopp" onClick="stopCode()"><img src="./images/stop.png"></button>
+                        <button id="pauseButton" title="Pause" onClick="pause()"><img id="pauseResumeImg" src="./images/pause.png"></button>
+                        <button id="resetButton" title="Reset" onClick="reset();"><img src="./images/reset.png"></button>
+                    </div>
+                </div>
+                <canvas id="territoryId" class="territory" ondrop="drop(event)" ondragover="allowDrop(event)"></canvas>
+                <div class="buttons-bottom">
+                    <div class="grid">
+                        <img src="./images/groesse.png" id="size">
+                        <input type="number" class="spinner" name="row" value="9" min="2" max="20" id="row" required>
+                        <input type="number" class="spinner" name="column" min="2" id="column" required>
+                        <button type="submit" title="Bestätigen: Größe der Welt ändern" value="Ok" class="okbutton" onclick="resizeTerritory()"><img src="images/ok.png"></button>
+                    </div>
+                    <button class="element" title="Stumpf platzieren" id="tree"><img src="./images/stump_2.png" id="treeImage" alt="stump" draggable="true" ondragstart="drag(event)" ontouchstart="dragTouch(event)"></button>
+                    <button class="element" title="Kleeblatt platzieren" id="clover"><img src="./images/clover.png" id="leafImage" alt="clover" draggable="true" ondragstart="drag(event)" ontouchstart="dragTouch(event)"></button>
+                    <button class="element" title="Pilz platzieren" id="mushroom"><img src="./images/fungus.png" id="mushroomImage" alt="mushroom" draggable="true" ondragstart="drag(event)" ontouchstart="dragTouch(event)"></button>
+                    <button class="element" title="Element löschen" id="trash"><img src="./images/trash.png" id="trashImage" alt="trash" draggable="true" ondragstart="drag(event)" ontouchstart="dragTouch(event)"></button>
+                    <div class="hamstersettings">
+                        <button class="element" title="Schritt vor" id="move" onClick="move()"><img src="./images/step_forward.png"></button>
+                        <button class="element" title="Kara nach links drehen" id="left" onClick="turnLeft()"><img src="./images/turn_left.png"></button>
+                        <button class="element" title="Kara nach rechts drehen" id="right" onClick="turnRight()"><img src="./images/turn_right.png"></button>
+                        <button class="element" title="Kleeblatt nehmen" id="take" onClick="takeLeaf()"><img src="./images/clover_take.png"></button>
+                        <button class="element" title="Kleeblatt ablegen" id="put" onClick="putLeaf()"><img src="./images/clover_put.png"></button>
+                    </div>
+                </div>
+            </div>
+            <div class="rightbox" id="rightbox">
+                <div class="topnav" id="topnav">
+                    <a id="save" onclick="saveFile('code')">Programm speichern</a>
+                    <a id="load" onclick="loadFile('code')">Programm laden</a>
+                    <input type="file" id="file-input-code" />
+                    
+                    <span style="float: right"><a href="https://boles.de" target="_blank">&copy; Diedrich Boles</a></span>
+                </div>
+                <div id="blocklyArea" class="blocklyArea"></div>
+                <div id="blocklyDiv" style="position: absolute">
+                    <xml id="toolbox" style="display: none">
+                        <category name="Kara-Kommandos" colour="260">
+                            <block type="forward"></block>
+                            <block type="left"></block>
+                            <block type="right"></block>
+                            <block type="put"></block>
+                            <block type="take"></block>
+                        </category>
+                        <category name="Kara-Sensoren" colour="330">
+                            <block type="onLeaf"></block>
+                            <block type="treeFront"></block>
+                            <block type="treeLeft"></block>
+                            <block type="treeRight"></block>
+                            <block type="mushroomFront"></block>
+                        </category>
+                        <category name="Steuerung" colour="120">
+                            <block type="controls_if"></block>
+                            <block type="controls_whileUntil"></block>
+                            <block type="controls_repeat_ext"></block>
+                            <block type="controls_for"></block>
+                        </category>
+                        <category name="Logik" colour="210">
+                            <block type="logic_compare"></block>
+                            <block type="logic_operation"></block>
+                            <block type="logic_boolean"></block>
+                            <block type="logic_negate"></block>
+                        </category>
+                        <category name="Mathematik" colour="230">
+                            <block type="math_number"></block>
+                            <block type="math_arithmetic"></block>
+                            <block type="math_single"></block>
+                            <block type="math_trig"></block>
+                            <block type="math_modulo"></block>
+                            <block type="math_random_int"></block>
+                            <block type="math_random_float"></block>
+                        </category>
+                        <category name="Eigene Befehle" colour="290" custom="PROCEDURE"></category>
+                        <category name="Variablen" colour="40" custom="VARIABLE"></category>
+                    </xml>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,168 @@
+* {
+    /*box-sizing: border-box;*/
+    box-sizing: content-box;
+}
+
+html {
+    height: 100%;
+    border: 0px;
+}
+
+body {
+    background: rgb(248, 253, 255);
+    background: radial-gradient(circle, rgba(248, 253, 255, 1) 0%, rgba(186, 225, 249, 1) 100%);
+    height: 97%;
+    margin: 10px 10px 10px 10px;
+    border: 0px;
+}
+
+.territory {
+    border: solid rgb(139, 69, 19);
+}
+
+.buttons-top {
+    margin-top: 15px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    margin-left: 5px;
+    display: flex;
+    flex-wrap: nowrap;
+    min-height: 36px;
+}
+
+.buttons-bottom {
+    margin-top: 3px;
+    margin-bottom: 15px;
+    margin-right: 5px;
+    margin-left: 5px;
+    display: flex;
+    flex-wrap: nowrap;
+    min-height: 54px;
+}
+
+button {
+    display: inline-block;
+    padding: 7px 5px 3px 5px;
+    margin: 2px 5px;
+    cursor: pointer;
+    outline: none;
+    background-color: #fff;
+    border: 1px solid rgb(222, 184, 135);
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgb(139, 69, 19);
+}
+
+button:hover {
+    background-color: rgb(255, 239, 213)
+}
+
+button:active {
+    background-color: rgb(255, 218, 185);
+    box-shadow: 0 0 10px rgb(139, 69, 19);
+}
+
+button:disabled {
+    border: 1px solid rgb(190, 158, 116);
+    background-color: rgb(235, 209, 182);
+    color: #666666;
+    cursor: no-drop;
+    box-shadow: 0 0 5px #cccccc;
+}
+
+.element {
+    padding: 2px;
+    border-radius: 5px;
+    margin: 0px 5px;
+}
+
+.spinner {
+    width: 3em;
+}
+
+.spinner:valid {
+    background-color: #ddffdd;
+}
+
+.spinner:invalid {
+    background-color: #ffdddd;
+}
+
+input {
+    border-color: rgb(255, 218, 185);
+    margin: 1px;
+}
+
+.topnav {
+    overflow: hidden;
+    background-color: rgb(185, 105, 35);
+    margin-right: auto!important;
+    min-height: 40px;
+    min-width: 320px;
+}
+
+.topnav a {
+    float: left;
+    color: rgb(255, 245, 235);
+    text-align: center;
+    padding: 10px 5px;
+    text-decoration: none;
+    font-size: 17px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav a:hover {
+    background-color: rgb(255, 245, 235);
+    color: rgb(139, 69, 19);
+    cursor: pointer;
+}
+
+.rightbox {
+    width: 100%;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 3px;
+    margin: 0px 5px;
+}
+
+#size {
+    grid-area: 1 / 1 / span 1 / span 2;
+    margin: auto;
+}
+
+#row {
+    grid-area: 2 / 1;
+}
+
+#column {
+    grid-area: 2 / 2;
+}
+
+.okbutton {
+    grid-area: 2 / 3;
+}
+
+#file-input-code,
+#file-input-territory {
+    display: none;
+}
+
+.hamstersettings {
+    margin-left: auto;
+    margin-right: 5px;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.controls {
+    margin-left: auto;
+    margin-right: 5px;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.leftbox {
+    background-color: rgb(255, 245, 235);
+}
