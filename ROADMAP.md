@@ -32,3 +32,4 @@ bzw. zu Python-Kara
 while not kara.treeFront():
   kara.move()
 ```
+siehe [export-py Branch](https://github.com/cgloeckner/blockly-kara/tree/export-py) (WIP, import broken)
