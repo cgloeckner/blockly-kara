@@ -15,6 +15,7 @@ siehe [README.txt](README.txt)
 
 - Kommandos (wie `onLeaf`) ins Deutsche übersetzt
 - Welten als einfach editierbare ASCII-Dateien
+- optionale Tastatursteuerung des Akteurs
 
 ## .world-Dateien
 
@@ -38,3 +39,13 @@ Dabei gilt folgende Legende:
 | N/O/S/W | Kara schaut nach `N`orden/`O`osten/`S`üden/`W`esten |
 
 *Bemerkung:* Zwar können so zwar mehrere Karas beschrieben werden, allerdings zählt nur der "unterste" Akteur - alle anderen werden ignoriert.
+
+## Tastatursteuerung
+
+| Taste | Aktion |
+|:-----:|:-------|
+| ⇑ `w` | gerade aus bewegen |
+| ⇐ `a` `q` | nach links drehen |
+| ⇒ `d` `e` | nach rechts drehen |
+| Leertaste | Kleeblatt ablegen |
+| Enter | Kleeblatt mitnehmen |
