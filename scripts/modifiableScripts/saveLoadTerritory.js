@@ -10,94 +10,150 @@ function saveFile(saveTarget) {
     switch (saveTarget) {
         case "code":
             content = saveCode();
+            content = Base64.encode(content)
             fileName = "blockly_kara.code.txt";
             break;
         case "territory":
             content = saveTerritory();
-            fileName = "blockly_kara.territory.txt";
+            fileName = "Unbenannte Welt.world";
             break;
         default:
             alert("Fehler beim Speichern der Datei!");
     }
 
     if (content !== "" && fileName !== "") {
-        var element = document.createElement('a');
-        element.setAttribute("href", "data:text/plain;charset=utf-8," + Base64.encode(content));
-        element.setAttribute("download", fileName);
-        element.style.display = "none";
-        document.body.appendChild(element);
-        element.click();
-        document.body.removeChild(element);
+        const blob = new Blob([content], {type: 'text/plain'})
+
+        var element = document.createElement('a')
+        element.href = window.URL.createObjectURL(blob)
+        element.download = fileName
+        element.style.display = "none"
+        document.body.appendChild(element)
+        element.click()
+        document.body.removeChild(element)
     } else {
         alert("Fehler beim Speichern der Datei!");
     }
 }
 
+// Export the entire cell to a single ASCII character
+function dumpCell(cell) {
+    if (cell.tree) {
+        return 'B'
+    }
+
+    if (cell.leaf) {
+        if (cell.mushroom) {
+            return 'R'
+        }
+        return 'K'
+    }
+
+    if (cell.mushroom) {
+        return 'P'
+    }
+
+    if (cell.actor) {
+        const mapping = {
+            "west": "W",
+            "east": "O",
+            "north": "N",
+            "south": "S"
+        }
+        return mapping[actorDirection]
+    }
+
+    return '.'
+}
+
+function populateCell(x, y, raw) {
+    let cell = new CellContent()
+
+    if (raw == ".") {
+        return cell
+    }
+
+    if (raw == "B") {
+        cell.setTree(true)
+        return cell
+    }
+
+    if (raw == "K") {
+        cell.setLeaf(true)
+        return cell
+    }
+
+    if (raw == "P") {
+        cell.setMushroom(true)
+        return cell
+    }
+
+    if (raw == "R") {
+        cell.setLeaf(true)
+        cell.setMushroom(true)
+        return cell
+    }
+
+    cell.setActor(true)
+
+    // place actor
+    actorColumn = x
+    actorRow = y
+    currentX = actorColumn * cellWidth + 30
+    currentY = actorRow * cellHeight + 30
+
+    // set direction
+    const mapping = {
+        "W": "west",
+        "O": "east",
+        "N": "north",
+        "S": "south"
+    }
+    actorDirection = mapping[raw]
+    
+    // set up sprite
+    const img_src = {
+        "W": "left",
+        "O": "right",
+        "N": "top",
+        "S": "bottom"
+    }
+    actorImage.src = `./images/kara_${img_src[raw]}.png`
+
+    return cell 
+}
+
+// Dump entire world to a multiline string
 function saveTerritory() {
-    saveTemporaryTerritory();
-    var territoryString = tempActorDirection + "|" + tempActorImageSrc + "|" + tempCurrentX + "|" +
-        tempCurrentY + "|" + tempActorRow + "|" + tempActorColumn + "|" + row + "|" + column + "|";
-    territoryString += JSON.stringify(tempTerritoryContent);
-    return territoryString;
+    let raw = ''
+    for (let y = 0; y < row; ++y) {
+        for (let x = 0; x < column; ++x) {
+            raw += dumpCell(territoryContent[y][x])
+        }
+        raw += '\n'
+    }
+
+    return raw
 }
 
-function loadTerritory(fileContent) {
-    stopCode();
-    var territoryString = Base64.decode(fileContent);
-    const paramsArray = territoryString.split("|");
-    tempActorDirection = paramsArray[0];
-    tempActorImageSrc = paramsArray[1];
-    tempCurrentX = parseInt(paramsArray[2], 10);
-    tempCurrentY = parseInt(paramsArray[3], 10);
-    tempActorRow = parseInt(paramsArray[4], 10);
-    tempActorColumn = parseInt(paramsArray[5], 10);
-    row = parseInt(paramsArray[6], 10);
-    column = parseInt(paramsArray[7], 10);
-    tempTerritoryContent = JSON.parse(paramsArray[8]);
+// Parse entire woirld from a multiline string
+function loadTerritory(raw) {
+    const tmp = raw.split('\n')
+    const new_row = tmp.length - 1 // NOTE: skip line after last '\n'
+    const new_column = tmp[0].length
 
-    maxColumn = column;
-    document.getElementById("column").max = maxColumn;
-    document.getElementById("row").value = row;
-    document.getElementById("column").value = column;
-    resizeTerritory();
-    createCellContent();
-    loadTemporaryTerritory();
-}
+    stopCode()
+    document.getElementById("row").value = new_row
+    document.getElementById("column").value = new_column
+    resizeTerritory()
+    createCellContent()
 
-function saveTemporaryTerritory() {
-    tempActorDirection = actorDirection;
-    tempActorImageSrc = actorImageSrc;
-    tempTerritoryContent = JSON.parse(JSON.stringify(territoryContent));
-
-    tempCurrentX = currentX;
-    tempCurrentY = currentY;
-    tempActorRow = actorRow;
-    tempActorColumn = actorColumn;
-}
-
-function loadTemporaryTerritory() {
-    actorDirection = tempActorDirection;
-    actorImageSrc = tempActorImageSrc;
-    copyTerritory();
-    //console.log(tempTerritoryContent);
-
-    currentX = tempCurrentX;
-    currentY = tempCurrentY;
-    actorRow = tempActorRow;
-    actorColumn = tempActorColumn;
-    drawBasicTerritory();
-    drawTerritoryContent();
-    actorImage.src = actorImageSrc;
-}
-
-function copyTerritory() {
-    for (var r = 0; r < row; r++) {
-        for (var c = 0; c < column; c++) {
-            territoryContent[r][c] = new CellContent();
-            territoryContent[r][c].setActor(tempTerritoryContent[r][c].actor);
-            territoryContent[r][c].setTree(tempTerritoryContent[r][c].tree);
-            territoryContent[r][c].setLeaf(tempTerritoryContent[r][c].leaf);
-            territoryContent[r][c].setMushroom(tempTerritoryContent[r][c].mushroom);
+    for (let y = 0; y < row; ++y) {
+        for (let x = 0; x < column; ++x) {
+            territoryContent[y][x] = populateCell(x, y, tmp[y][x])
         }
     }
+
+    drawBasicTerritory()
+    drawTerritoryContent()
 }
