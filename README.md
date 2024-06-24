@@ -14,7 +14,7 @@ siehe [README.txt](README.txt)
 ## Änderungen
 
 - Kommandos (wie `onLeaf`) ins Deutsche übersetzt
-- Welten als einfach editierbare ASCII-Datei
+- Welten als einfach editierbare ASCII-Dateien
 
 ## .world-Dateien
 
