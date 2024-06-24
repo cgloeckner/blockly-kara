@@ -37,4 +37,4 @@ Dabei gilt folgende Legende:
 | R | Kleeblatt und Pilz .. **K** und **B** zu **R** kombiniert |
 | N/O/S/W | Kara schaut nach `N`orden/`O`osten/`S`üden/`W`esten |
 
-*Bemerkung:* Zwar können so zwar mehrere Karas beschrieben werden, allerdings zählt nur der "unterste" Akteur. - alle anderen werden ignoriert.
+*Bemerkung:* Zwar können so zwar mehrere Karas beschrieben werden, allerdings zählt nur der "unterste" Akteur - alle anderen werden ignoriert.
