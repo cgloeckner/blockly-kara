@@ -17,7 +17,7 @@ function runCode() {
 
     if (!run) {
         if (!paused) {
-            //saveTemporaryTerritory();
+            saveInitialTerritory();
             var code = Blockly.JavaScript.workspaceToCode(workspace);
             myInterpreter = new Interpreter(code, initApi);
             stopped = false;
@@ -89,5 +89,5 @@ function pause() {
 
 function reset() {
     stopCode();
-    loadTemporaryTerritory();
+    loadInitialTerritory();
 }

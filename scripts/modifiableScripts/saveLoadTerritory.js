@@ -157,3 +157,41 @@ function loadTerritory(raw) {
     drawBasicTerritory()
     drawTerritoryContent()
 }
+
+function copyTerritory() {
+    for (let y = 0; y < row; y++) {
+        for (let x = 0; x < column; x++) {
+            territoryContent[y][x] = new CellContent();
+            territoryContent[y][x].setActor(initialTerritoryContent[y][x].actor);
+            territoryContent[y][x].setTree(initialTerritoryContent[y][x].tree);
+            territoryContent[y][x].setLeaf(initialTerritoryContent[y][x].leaf);
+            territoryContent[y][x].setMushroom(initialTerritoryContent[y][x].mushroom);
+        }
+    }
+}
+
+function saveInitialTerritory() {
+    initialActorDirection = actorDirection;
+    initialActorImageSrc = actorImageSrc;
+    initialTerritoryContent = JSON.parse(JSON.stringify(territoryContent));
+
+    initialCurrentX = currentX;
+    initialCurrentY = currentY;
+    initialActorRow = actorRow;
+    initialActorColumn = actorColumn;
+}
+
+function loadInitialTerritory() {
+    actorDirection = initialActorDirection;
+    actorImageSrc = initialActorImageSrc;
+    copyTerritory();
+    //console.log(initialTerritoryContent);
+
+    currentX = initialCurrentX;
+    currentY = initialCurrentY;
+    actorRow = initialActorRow;
+    actorColumn = initialActorColumn;
+    drawBasicTerritory();
+    drawTerritoryContent();
+    actorImage.src = actorImageSrc;
+}
