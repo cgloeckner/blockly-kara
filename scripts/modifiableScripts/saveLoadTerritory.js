@@ -11,7 +11,7 @@ function saveFile(saveTarget) {
         case "code":
             content = saveCode();
             content = Base64.encode(content)
-            fileName = "blockly_kara.code.txt";
+            fileName = "Unbenannter Code.karacode";
             break;
         case "territory":
             content = saveTerritory();
