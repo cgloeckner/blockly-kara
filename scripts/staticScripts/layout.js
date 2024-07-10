@@ -98,7 +98,7 @@ function setAreasHeight(winHeight, recalculateCanvas) {
         console.log("Vertical Layout!");
         heightLeftBox = Math.floor(wrapperHeight / 2);
     } else {
-        console.log("Horisontal Layout!");
+        console.log("Horizontal Layout!");
         //heightLeftBox = Math.floor((winHeight - document.getElementById("titel").height - minMargin));
         heightLeftBox = wrapperHeight;
     }
