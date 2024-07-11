@@ -166,3 +166,21 @@ input {
 .leftbox {
     background-color: rgb(255, 245, 235);
 }
+
+#blocklyPython {
+    display: none;
+    position: absolute;
+    padding: 1em;
+}
+
+#blocklyPython.show {
+    display: block;
+}
+
+#blocklyPython pre {
+    margin: 0;
+}
+
+#blocklyDiv .injectionDiv.hide {
+    display: none;
+}

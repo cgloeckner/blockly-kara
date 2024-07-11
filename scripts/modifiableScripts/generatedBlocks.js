@@ -123,7 +123,7 @@ Blockly.JavaScript['forward'] = function(block) {
     return code;
 };
 Blockly.Python['forward'] = function(block) {
-    var code = 'move()';
+    var code = 'move()\n';
     return code;
 };
 
@@ -170,8 +170,8 @@ Blockly.JavaScript['onLeaf'] = function(block) {
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 Blockly.Python['onLeaf'] = function(block) {
-    var code = 'onLeaf()\n';
-    return code;
+    var code = 'onLeaf()';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 Blockly.JavaScript['treeFront'] = function(block) {
@@ -179,8 +179,8 @@ Blockly.JavaScript['treeFront'] = function(block) {
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 Blockly.Python['treeFront'] = function(block) {
-    var code = 'treeFront()\n';
-    return code;
+    var code = 'treeFront()';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 Blockly.JavaScript['treeLeft'] = function(block) {
@@ -188,8 +188,8 @@ Blockly.JavaScript['treeLeft'] = function(block) {
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 Blockly.Python['treeLeft'] = function(block) {
-    var code = 'treeLeft()\n';
-    return code;
+    var code = 'treeLeft()';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 Blockly.JavaScript['treeRight'] = function(block) {
@@ -197,8 +197,8 @@ Blockly.JavaScript['treeRight'] = function(block) {
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 Blockly.Python['treeRight'] = function(block) {
-    var code = 'treeRight()\n';
-    return code;
+    var code = 'treeRight()';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 Blockly.JavaScript['mushroomFront'] = function(block) {
@@ -206,8 +206,8 @@ Blockly.JavaScript['mushroomFront'] = function(block) {
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 Blockly.Python['mushroomFront'] = function(block) {
-    var code = 'mushroomFront()\n';
-    return code;
+    var code = 'mushroomFront()';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 

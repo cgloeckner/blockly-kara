@@ -71,7 +71,7 @@
                     <a id="save" onclick="saveFile('code')">Programm speichern</a>
                     <a id="load" onclick="loadFile('code')">Programm laden</a>
                     <input type="file" id="file-input-code" accept=".karacode" />
-                    <a id="python-code" onclick="showPythonCode()">Code anzeigen</a>
+                    <a id="python-code" onclick="toggleCodeDisplay()">Code anzeigen/verbergen</a>
                 </div>
                 <div id="blocklyArea" class="blocklyArea"></div>
                 <div id="blocklyDiv" style="position: absolute">
@@ -114,9 +114,9 @@
                         <category name="Eigene Befehle" colour="290" custom="PROCEDURE"></category>
                         <category name="Variablen" colour="40" custom="VARIABLE"></category>
                     </xml>
-                </div>
-                <div id="blocklyPython" style="position: absolute">
-                    <pre id="pythonCode"></pre>
+                    <div id="blocklyPython" style="position: absolute">
+                        <pre id="pythonCode"></pre>
+                    </div>
                 </div>
             </div>
         </div>

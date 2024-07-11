@@ -3,6 +3,7 @@ var speed = 80;
 var stopped = true;
 var run = false;
 var paused = false;
+var showCode = false;
 
 function setSpeed(value) {
     speed = 100 - value;
@@ -10,11 +11,26 @@ function setSpeed(value) {
     console.log(speed);
 }
 
-function showPythonCode() {
-    var code = Blockly.Python.workspaceToCode(workspace);
-    console.log(code);
+function toggleCodeDisplay() {
+    
     var codeTag = document.getElementById('pythonCode');
-    codeTag.innerHTML = code;
+    var codeDiv = codeTag.parentNode;
+    var blockTag = document.getElementById('blocklyDiv').getElementsByClassName('injectionDiv')[0];
+
+    if (!showCode) {
+        console.log('Display code, hide blocks.');
+        var code = Blockly.Python.workspaceToCode(workspace);
+        console.log(code);
+        codeTag.innerHTML = code;
+        codeDiv.classList.add('show');
+        blockTag.classList.add('hide');
+        showCode = true;
+    } else {
+        console.log('Hide code, display blocks.');
+        codeDiv.classList.remove('show');
+        blockTag.classList.remove('hide');
+        showCode = false;
+    }
 }
 
 function runCode() {
