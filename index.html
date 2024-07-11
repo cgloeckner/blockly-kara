@@ -10,6 +10,7 @@
     <script src="./scripts/staticScripts/google-blockly-5.20210325.1-5-gfc6a1be/google-blockly-fc6a1be/blockly_compressed.js"></script>
     <script src="./scripts/staticScripts/google-blockly-5.20210325.1-5-gfc6a1be/google-blockly-fc6a1be/blocks_compressed.js"></script>
     <script src="./scripts/staticScripts/google-blockly-5.20210325.1-5-gfc6a1be/google-blockly-fc6a1be/javascript_compressed.js"></script>
+    <script src="./scripts/staticScripts/google-blockly-5.20210325.1-5-gfc6a1be/google-blockly-fc6a1be/python_compressed.js"></script>
     <script src="./scripts/staticScripts/google-blockly-5.20210325.1-5-gfc6a1be/google-blockly-fc6a1be/msg/js/de.js"></script>
     <script src="./scripts/staticScripts/NeilFraser-JS-Interpreter-cb740ed/NeilFraser-JS-Interpreter-cb740ed/acorn.js"></script>
     <script src="./scripts/staticScripts/NeilFraser-JS-Interpreter-cb740ed/NeilFraser-JS-Interpreter-cb740ed/interpreter.js"></script>
@@ -70,6 +71,7 @@
                     <a id="save" onclick="saveFile('code')">Programm speichern</a>
                     <a id="load" onclick="loadFile('code')">Programm laden</a>
                     <input type="file" id="file-input-code" accept=".karacode" />
+                    <a id="python-code" onclick="showPythonCode()">Code anzeigen</a>
                 </div>
                 <div id="blocklyArea" class="blocklyArea"></div>
                 <div id="blocklyDiv" style="position: absolute">
@@ -112,6 +114,9 @@
                         <category name="Eigene Befehle" colour="290" custom="PROCEDURE"></category>
                         <category name="Variablen" colour="40" custom="VARIABLE"></category>
                     </xml>
+                </div>
+                <div id="blocklyPython" style="position: absolute">
+                    <pre id="pythonCode"></pre>
                 </div>
             </div>
         </div>

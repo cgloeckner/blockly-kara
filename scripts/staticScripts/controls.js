@@ -10,6 +10,13 @@ function setSpeed(value) {
     console.log(speed);
 }
 
+function showPythonCode() {
+    var code = Blockly.Python.workspaceToCode(workspace);
+    console.log(code);
+    var codeTag = document.getElementById('pythonCode');
+    codeTag.innerHTML = code;
+}
+
 function runCode() {
     console.log("Begin of runCode() run: ", run);
     console.log("Begin of runCode() stopped: ", stopped);
