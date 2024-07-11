@@ -132,11 +132,11 @@ input {
     margin: auto;
 }
 
-#row {
+#column {
     grid-area: 2 / 1;
 }
 
-#column {
+#row {
     grid-area: 2 / 2;
 }
 
