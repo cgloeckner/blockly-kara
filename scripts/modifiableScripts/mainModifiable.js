@@ -43,6 +43,8 @@ function loadPage() {
         alert("Es werden Safari oder Firefox 1.5+ benötigt.");
     }
 
+    saveInitialTerritory();
+
     document.getElementById("playButton").disabled = false;
     document.getElementById("stopButton").disabled = true;
     document.getElementById("pauseButton").disabled = true;
