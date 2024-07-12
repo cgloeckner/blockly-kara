@@ -13,28 +13,16 @@ function setSpeed(value) {
 
 function toggleCodeDisplay() {
     
-    var toggleButton = document.getElementById('toggle-blocks-code');
+    var rightbox = document.getElementById('rightbox');
     var codeContainer = document.getElementById('blocklyCodeContainer');
-    var blocksContainer = document.getElementById('blocklyDiv').getElementsByClassName('injectionDiv')[0];
 
-    if (!showCode) {
-        console.log('Display code, hide blocks.');
+    showCode = !showCode;
+    if (showCode) {
         var code = Blockly.Python.workspaceToCode(workspace);
         console.log(code);
         codeContainer.innerHTML = code;
-        toggleButton.classList.add('code-active');
-        toggleButton.classList.remove('blocks-active');
-        codeContainer.classList.add('show');
-        blocksContainer.classList.add('hide');
-        showCode = true;
-    } else {
-        console.log('Hide code, display blocks.');
-        toggleButton.classList.remove('code-active');
-        toggleButton.classList.add('blocks-active');
-        codeContainer.classList.remove('show');
-        blocksContainer.classList.remove('hide');
-        showCode = false;
     }
+    rightbox.classList.toggle('display-code');
 }
 
 function runCode() {

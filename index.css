@@ -171,7 +171,7 @@ input {
     content: "📄 Code\00a0";
 }
 
-#toggle-blocks-code.code-active::before {
+#rightbox.display-code #toggle-blocks-code::before {
     content: "🧩 Blöcke\00a0";
 }
 
@@ -187,10 +187,10 @@ input {
     white-space: pre;
 }
 
-#blocklyCodeContainer.show {
+#rightbox.display-code #blocklyCodeContainer {
     visibility: visible;
 }
 
-#blocklyDiv .injectionDiv.hide {
+#rightbox.display-code .injectionDiv {
     visibility: hidden;
 }
