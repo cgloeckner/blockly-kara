@@ -13,22 +13,26 @@ function setSpeed(value) {
 
 function toggleCodeDisplay() {
     
-    var codeTag = document.getElementById('pythonCode');
-    var codeDiv = codeTag.parentNode;
-    var blockTag = document.getElementById('blocklyDiv').getElementsByClassName('injectionDiv')[0];
+    var toggleButton = document.getElementById('toggle-blocks-code');
+    var codeContainer = document.getElementById('blocklyCodeContainer');
+    var blocksContainer = document.getElementById('blocklyDiv').getElementsByClassName('injectionDiv')[0];
 
     if (!showCode) {
         console.log('Display code, hide blocks.');
         var code = Blockly.Python.workspaceToCode(workspace);
         console.log(code);
-        codeTag.innerHTML = code;
-        codeDiv.classList.add('show');
-        blockTag.classList.add('hide');
+        codeContainer.innerHTML = code;
+        toggleButton.classList.add('code-active');
+        toggleButton.classList.remove('blocks-active');
+        codeContainer.classList.add('show');
+        blocksContainer.classList.add('hide');
         showCode = true;
     } else {
         console.log('Hide code, display blocks.');
-        codeDiv.classList.remove('show');
-        blockTag.classList.remove('hide');
+        toggleButton.classList.remove('code-active');
+        toggleButton.classList.add('blocks-active');
+        codeContainer.classList.remove('show');
+        blocksContainer.classList.remove('hide');
         showCode = false;
     }
 }

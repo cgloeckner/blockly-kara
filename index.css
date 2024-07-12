@@ -167,20 +167,30 @@ input {
     background-color: rgb(255, 245, 235);
 }
 
-#blocklyPython {
-    display: none;
+#toggle-blocks-code::before {
+    content: "📄 Code\00a0";
+}
+
+#toggle-blocks-code.code-active::before {
+    content: "🧩 Blöcke\00a0";
+}
+
+#blocklyCodeContainer {
+    visibility: hidden;
     position: absolute;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
     padding: 1em;
+    font-family: 'Courier New', Courier, monospace;
+    white-space: pre;
 }
 
-#blocklyPython.show {
-    display: block;
-}
-
-#blocklyPython pre {
-    margin: 0;
+#blocklyCodeContainer.show {
+    visibility: visible;
 }
 
 #blocklyDiv .injectionDiv.hide {
-    display: none;
+    visibility: hidden;
 }
