@@ -3,11 +3,28 @@ var speed = 80;
 var stopped = true;
 var run = false;
 var paused = false;
+var showCode = false;
 
 function setSpeed(value) {
     speed = 100 - value;
     document.getElementById("slider").title = value;
     console.log(speed);
+}
+
+function toggleCodeDisplay() {
+    
+    var rightbox = document.getElementById('rightbox');
+    var codeContainer = document.getElementById('blocklyCodeContainer');
+
+    showCode = !showCode;
+    if (showCode) {
+        var code = Blockly.Python.workspaceToCode(workspace);
+        console.log(code);
+        codeContainer.innerHTML = code;
+    }
+    rightbox.classList.toggle('display-code');
+    
+    Prism.highlightElement(codeContainer);
 }
 
 function runCode() {
