@@ -4,18 +4,23 @@ var tempTerritoryContent;
 
 function saveFile(saveTarget) {
     var content = "";
-    var fileName = "";
-    console.log('Save Target: ', saveTarget);
+
+    let fileName = prompt("Gib einen Dateinamen ein: ")
+    if (fileName === null || fileName == '') {
+        console.log('Canceled by user ')
+        return
+    }
+    console.log(`Picked filename is "${fileName}" for ${saveTarget}`)
 
     switch (saveTarget) {
         case "code":
             content = saveCode();
             content = Base64.encode(content)
-            fileName = "Unbenannter Code.karacode";
+            fileName += ".karacode";
             break;
         case "territory":
             content = saveTerritory();
-            fileName = "Unbenannte Welt.world";
+            fileName += ".world";
             break;
         default:
             alert("Fehler beim Speichern der Datei!");
@@ -31,6 +36,8 @@ function saveFile(saveTarget) {
         document.body.appendChild(element)
         element.click()
         document.body.removeChild(element)
+
+        console.log(`Saved ${saveTarget} to "${fileName}"`)
     } else {
         alert("Fehler beim Speichern der Datei!");
     }

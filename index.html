@@ -33,15 +33,19 @@
         <div class="wrapper" id="wrapper">
             <div class="leftbox" id="leftbox">
                 <div class="buttons-top">
-                    <button id="saveButton" title="Welt speichern" onClick="saveFile('territory')"><img src="./images/speichern.png"></button>
-                    <button id="loadButton" title="Welt laden" onClick="loadFile('territory')"><img src="./images/laden.png"></button>
+                    <button id="saveButton" title="Welt speichern" onClick="saveFile('territory')">
+                        💾 <img src="./images/speichern.png">
+                    </button>
+                    <button id="loadButton" title="Welt laden" onClick="loadFile('territory')">
+                        📁 <img src="./images/laden.png">
+                    </button>
                     <input type="file" id="file-input-territory" accept=".world" />
                     <div class="controls">
                         <input id="slider" title="20" type="range" min="0" max="100" value="20" step="5" oninput="setSpeed(this.value)" />
-                        <button id="playButton" title="Ausführen" onClick="runCode()"><img src="./images/play.png"></button>
-                        <button id="stopButton" title="Stopp" onClick="stopCode()"><img src="./images/stop.png"></button>
-                        <button id="pauseButton" title="Pause" onClick="pause()"><img id="pauseResumeImg" src="./images/pause.png"></button>
-                        <button id="resetButton" title="Reset" onClick="reset();"><img src="./images/reset.png"></button>
+                        <button id="playButton" title="Programm ausführen" onClick="runCode()"><img src="./images/play.png"></button>
+                        <button id="stopButton" title="Programm stoppen" onClick="stopCode()"><img src="./images/stop.png"></button>
+                        <button id="pauseButton" title="Programm pausieren" onClick="pause()"><img id="pauseResumeImg" src="./images/pause.png"></button>
+                        <button id="resetButton" title="Welt zurücksetzen" onClick="reset();"><img src="./images/reset.png"></button>
                     </div>
                 </div>
                 <canvas id="territoryId" class="territory" ondrop="drop(event)" ondragover="allowDrop(event)"></canvas>
@@ -67,8 +71,8 @@
             </div>
             <div class="rightbox" id="rightbox">
                 <div class="topnav" id="topnav">
-                    <a id="save" onclick="saveFile('code')">Programm speichern</a>
-                    <a id="load" onclick="loadFile('code')">Programm laden</a>
+                    <a id="save" onclick="saveFile('code')">💾 Programm speichern</a>
+                    <a id="load" onclick="loadFile('code')">📁 Programm laden</a>
                     <input type="file" id="file-input-code" accept=".karacode" />
                 </div>
                 <div id="blocklyArea" class="blocklyArea"></div>
