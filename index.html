@@ -34,18 +34,18 @@
             <div class="leftbox" id="leftbox">
                 <div class="buttons-top">
                     <button id="saveButton" title="Welt speichern" onClick="saveFile('territory')">
-                        💾 <img src="./images/speichern.png">
+                        <span role="img" aria-hidden="true">💾</span> Speichern
                     </button>
                     <button id="loadButton" title="Welt laden" onClick="loadFile('territory')">
-                        📁 <img src="./images/laden.png">
+                        <span role="img" aria-hidden="true">📁</span> Laden
                     </button>
                     <input type="file" id="file-input-territory" accept=".world" />
                     <div class="controls">
                         <input id="slider" title="20" type="range" min="0" max="100" value="20" step="5" oninput="setSpeed(this.value)" />
-                        <button id="playButton" title="Programm ausführen" onClick="runCode()"><img src="./images/play.png"></button>
-                        <button id="stopButton" title="Programm stoppen" onClick="stopCode()"><img src="./images/stop.png"></button>
-                        <button id="pauseButton" title="Programm pausieren" onClick="pause()"><img id="pauseResumeImg" src="./images/pause.png"></button>
-                        <button id="resetButton" title="Welt zurücksetzen" onClick="reset();"><img src="./images/reset.png"></button>
+                        <button id="playButton" title="Programm ausführen" onClick="runCode()"><span role="img" aria-label="Programm ausführen">▶️</span></button>
+                        <button id="pauseButton" title="Programm pausieren" onClick="pause()"><span role="img" aria-label="Programm pausieren">⏸️</span></button>
+                        <button id="stopButton" title="Programm stoppen" onClick="stopCode()"><span role="img" aria-label="Programm stoppen">⏹️</span></button>
+                        <button id="resetButton" title="Welt zurücksetzen" onClick="reset()"><span role="img" aria-label="Welt zurücksetzen">🔃</span></button>
                     </div>
                 </div>
                 <canvas id="territoryId" class="territory" ondrop="drop(event)" ondragover="allowDrop(event)"></canvas>

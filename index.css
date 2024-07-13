@@ -40,7 +40,7 @@ body {
     min-height: 54px;
 }
 
-div.leftbox > div.buttons-top > button {
+div.leftbox > div.buttons-top button {
     font-size: large;
 }
 
