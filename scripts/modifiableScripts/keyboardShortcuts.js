@@ -1,5 +1,17 @@
+let last_active = null
+
 document.addEventListener('keydown', (event) => {
-    console.log('keydown')
+    console.log(document.activeElement.tagName)
+    if (document.activeElement.tagName == 'INPUT' || last_active == 'INPUT') {
+        // ignore controls
+        console.log('ignore')
+        last_active = document.activeElement.tagName
+        if (event.key == 'Enter') {
+            last_active = null
+        }
+        return
+    }
+
     if (event.key == 'ArrowUp' || event.key == 'w') {
         event.preventDefault()
         document.getElementById('move').click()
