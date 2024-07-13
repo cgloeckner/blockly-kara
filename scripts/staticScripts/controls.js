@@ -23,6 +23,8 @@ function toggleCodeDisplay() {
         codeContainer.innerHTML = code;
     }
     rightbox.classList.toggle('display-code');
+    
+    Prism.highlightElement(codeContainer);
 }
 
 function runCode() {

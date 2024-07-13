@@ -4,6 +4,7 @@
 <head>
     <link rel="icon" href="images/kara_bottom.png">
     <link rel="stylesheet" type="text/css" href="./index.css">
+    <link href="./prism.css" rel="stylesheet" />
     <script src="./scripts/staticScripts/layout.js"></script>
     <script src="./scripts/staticScripts/main.js"></script>
     <script src="./scripts/staticScripts/base64.js"></script>
@@ -22,6 +23,7 @@
     <script src="./scripts/modifiableScripts/saveLoadTerritory.js"></script>
     <script src="./scripts/modifiableScripts/keyboardShortcuts.js"></script>
     <script src="./scripts/modifiableScripts/mainModifiable.js"></script>
+    <script src="./prism.js"></script>
     <meta charset="utf-8">
     <title> Blockly Kara Simulator </title>
 </head>
@@ -114,7 +116,7 @@
                         <category name="Eigene Befehle" colour="290" custom="PROCEDURE"></category>
                         <category name="Variablen" colour="40" custom="VARIABLE"></category>
                     </xml>
-                    <div id="blocklyCodeContainer"></div>
+                    <pre id="blocklyCodeContainer" class="language-python"></pre>
                 </div>
             </div>
         </div>
