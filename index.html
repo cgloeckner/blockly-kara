@@ -4,14 +4,17 @@
 <head>
     <link rel="icon" href="images/kara_bottom.png">
     <link rel="stylesheet" type="text/css" href="./index.css">
+    <link href="./prism.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="./fontawesome/css/fontawesome.min.css">
     <link rel="stylesheet" type="text/css" href="./fontawesome/css/solid.min.css">
+    <link rel="stylesheet" type="text/css" href="./fontawesome/css/brands.min.css">
     <script src="./scripts/staticScripts/layout.js"></script>
     <script src="./scripts/staticScripts/main.js"></script>
     <script src="./scripts/staticScripts/base64.js"></script>
     <script src="./scripts/staticScripts/google-blockly-5.20210325.1-5-gfc6a1be/google-blockly-fc6a1be/blockly_compressed.js"></script>
     <script src="./scripts/staticScripts/google-blockly-5.20210325.1-5-gfc6a1be/google-blockly-fc6a1be/blocks_compressed.js"></script>
     <script src="./scripts/staticScripts/google-blockly-5.20210325.1-5-gfc6a1be/google-blockly-fc6a1be/javascript_compressed.js"></script>
+    <script src="./scripts/staticScripts/google-blockly-5.20210325.1-5-gfc6a1be/google-blockly-fc6a1be/python_compressed.js"></script>
     <script src="./scripts/staticScripts/google-blockly-5.20210325.1-5-gfc6a1be/google-blockly-fc6a1be/msg/js/de.js"></script>
     <script src="./scripts/staticScripts/NeilFraser-JS-Interpreter-cb740ed/NeilFraser-JS-Interpreter-cb740ed/acorn.js"></script>
     <script src="./scripts/staticScripts/NeilFraser-JS-Interpreter-cb740ed/NeilFraser-JS-Interpreter-cb740ed/interpreter.js"></script>
@@ -23,6 +26,7 @@
     <script src="./scripts/modifiableScripts/saveLoadTerritory.js"></script>
     <script src="./scripts/modifiableScripts/keyboardShortcuts.js"></script>
     <script src="./scripts/modifiableScripts/mainModifiable.js"></script>
+    <script src="./prism.js"></script>
     <meta charset="utf-8">
     <title> Blockly Kara Simulator </title>
 </head>
@@ -76,9 +80,13 @@
                     <a id="save" onclick="saveFile('code')" title="Programm speichern"><span role="img" aria-hidden="true" class="fa-solid fa-download"></span> Programm speichern</a>
                     <a id="load" onclick="loadFile('code')" title="Programm laden"><span role="img" aria-hidden="true" class="fa-solid fa-upload"></span> Programm laden</a>
                     <input type="file" id="file-input-code" accept=".karacode" />
+                    <a id="toggle-blocks-code" class="blocks-active" onclick="toggleCodeDisplay()">
+                        <span class="blocks-button"><span role="img" aria-hidden="true" class="fa-solid fa-puzzle-piece"></span> Blöcke</span>
+                        <span class="code-button"><span role="img" aria-hidden="true" class="fa-brands fa-python"></span> Code</span>
+                        anzeigen</a>
                 </div>
                 <div id="blocklyArea" class="blocklyArea"></div>
-                <div id="blocklyDiv" style="position: absolute">
+                <div id="blocklyDiv" class="display-blocks" style="position: absolute">
                     <xml id="toolbox" style="display: none">
                         <category name="Kara-Kommandos" colour="260">
                             <block type="forward"></block>
@@ -118,6 +126,7 @@
                         <category name="Eigene Befehle" colour="290" custom="PROCEDURE"></category>
                         <category name="Variablen" colour="40" custom="VARIABLE"></category>
                     </xml>
+                    <pre id="blocklyCodeContainer" class="language-python"></pre>
                 </div>
             </div>
         </div>

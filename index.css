@@ -172,3 +172,40 @@ input {
 .leftbox {
     background-color: rgb(255, 245, 235);
 }
+
+#toggle-blocks-code .blocks-button {
+    display: none;
+}
+
+#toggle-blocks-code .code-button {
+    display: inline;
+}
+
+#rightbox.display-code #toggle-blocks-code .code-button {
+    display: none;
+}
+
+#rightbox.display-code #toggle-blocks-code .blocks-button {
+    display: inline;
+}
+
+#blocklyCodeContainer {
+    visibility: hidden;
+    position: absolute;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+    margin: 0;
+    padding: 1em;
+    font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+    white-space: pre;
+}
+
+#rightbox.display-code #blocklyCodeContainer {
+    visibility: visible;
+}
+
+#rightbox.display-code .injectionDiv {
+    visibility: hidden;
+}

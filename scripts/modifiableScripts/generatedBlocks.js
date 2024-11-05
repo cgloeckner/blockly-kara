@@ -115,52 +115,105 @@ Blockly.Blocks['mushroomFront'] = {
     }
 };
 
-//Generator stub
+// *** GENERATOR STUB *** //
 
+// Generator stub: Kara actions
 Blockly.JavaScript['forward'] = function(block) {
     var code = 'move();\n';
     return code;
 };
-Blockly.JavaScript['left'] = function(block) {
+Blockly.Python['forward'] = function(block) {
+    var code = 'move()\n';
+    return code;
+};
 
+Blockly.JavaScript['left'] = function(block) {
     var code = 'turnLeft();\n';
     return code;
 };
+Blockly.Python['left'] = function(block) {
+    var code = 'turnLeft()\n';
+    return code;
+};
+
 Blockly.JavaScript['right'] = function(block) {
     var code = 'turnRight();\n';
     return code;
 };
+Blockly.Python['right'] = function(block) {
+    var code = 'turnRight()\n';
+    return code;
+};
+
 Blockly.JavaScript['put'] = function(block) {
     var code = 'putLeaf();\n';
     return code;
 };
+Blockly.Python['put'] = function(block) {
+    var code = 'putLeaf()\n';
+    return code;
+};
+
 Blockly.JavaScript['take'] = function(block) {
     var code = 'takeLeaf();\n';
     return code;
 };
-//Generator stub: Test-Befehle
+Blockly.Python['take'] = function(block) {
+    var code = 'removeLeaf()\n';
+    return code;
+};
+
+// Generator stub: Kara tests
+
 Blockly.JavaScript['onLeaf'] = function(block) {
     var code = 'onLeaf()';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
+Blockly.Python['onLeaf'] = function(block) {
+    var code = 'onLeaf()';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
 Blockly.JavaScript['treeFront'] = function(block) {
     var code = 'treeFront()';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
+Blockly.Python['treeFront'] = function(block) {
+    var code = 'treeFront()';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
 Blockly.JavaScript['treeLeft'] = function(block) {
     var code = 'treeLeft()';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
+Blockly.Python['treeLeft'] = function(block) {
+    var code = 'treeLeft()';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
 Blockly.JavaScript['treeRight'] = function(block) {
     var code = 'treeRight()';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
+Blockly.Python['treeRight'] = function(block) {
+    var code = 'treeRight()';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
 Blockly.JavaScript['mushroomFront'] = function(block) {
     var code = 'mushroomFront()';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
+Blockly.Python['mushroomFront'] = function(block) {
+    var code = 'mushroomFront()';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
 
-// interpreter
+
+// *** END OF GENERATOR STUB *** //
+
+// JavaScript Interpreter
 
 function initApi(interpreter, scope) {
 
