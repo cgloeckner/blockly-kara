@@ -4,6 +4,8 @@
 <head>
     <link rel="icon" href="images/kara_bottom.png">
     <link rel="stylesheet" type="text/css" href="./index.css">
+    <link rel="stylesheet" type="text/css" href="./fontawesome/css/fontawesome.min.css">
+    <link rel="stylesheet" type="text/css" href="./fontawesome/css/solid.min.css">
     <script src="./scripts/staticScripts/layout.js"></script>
     <script src="./scripts/staticScripts/main.js"></script>
     <script src="./scripts/staticScripts/base64.js"></script>
@@ -34,18 +36,18 @@
             <div class="leftbox" id="leftbox">
                 <div class="buttons-top">
                     <button id="saveButton" title="Welt speichern" onClick="saveFile('territory')">
-                        <span role="img" aria-hidden="true">💾</span> Speichern
+                        <span role="img" aria-hidden="true" class="fa-solid fa-download"></span> Speichern
                     </button>
                     <button id="loadButton" title="Welt laden" onClick="loadFile('territory')">
-                        <span role="img" aria-hidden="true">📁</span> Laden
+                        <span role="img" aria-hidden="true" class="fa-solid fa-upload"></span> Laden
                     </button>
                     <input type="file" id="file-input-territory" accept=".world" />
                     <div class="controls">
                         <input id="slider" title="20" type="range" min="0" max="100" value="20" step="5" oninput="setSpeed(this.value)" />
-                        <button id="playButton" title="Programm ausführen" onClick="runCode()"><span role="img" aria-label="Programm ausführen">▶️</span></button>
-                        <button id="pauseButton" title="Programm pausieren" onClick="pause()"><span role="img" aria-label="Programm pausieren">⏸️</span></button>
-                        <button id="stopButton" title="Programm stoppen" onClick="stopCode()"><span role="img" aria-label="Programm stoppen">⏹️</span></button>
-                        <button id="resetButton" title="Welt zurücksetzen" onClick="reset()"><span role="img" aria-label="Welt zurücksetzen">🔃</span></button>
+                        <button id="playButton" title="Programm ausführen" onClick="runCode()"><span role="img" aria-hidden="true" aria-label="Programm ausführen" class="fa-solid fa-play"></span></button>
+                        <button id="pauseButton" title="Programm pausieren" onClick="pause()"><span role="img" aria-hidden="true" aria-label="Programm pausieren" class="fa-solid fa-pause"></span></button>
+                        <button id="stopButton" title="Programm stoppen" onClick="stopCode()"><span role="img" aria-hidden="true" aria-label="Programm stoppen" class="fa-solid fa-stop"></span></button>
+                        <button id="resetButton" title="Welt zurücksetzen" onClick="reset()"><span role="img" aria-hidden="true" aria-label="Welt zurücksetzen" class="fa-solid fa-rotate-left"></span></button>
                     </div>
                 </div>
                 <canvas id="territoryId" class="territory" ondrop="drop(event)" ondragover="allowDrop(event)"></canvas>
@@ -71,8 +73,8 @@
             </div>
             <div class="rightbox" id="rightbox">
                 <div class="topnav" id="topnav">
-                    <a id="save" onclick="saveFile('code')"><span aria-role="img" aria-hidden="true">💾</span> Programm speichern</a>
-                    <a id="load" onclick="loadFile('code')"><span role="img" aria-hidden="true">📁</span> Programm laden</a>
+                    <a id="save" onclick="saveFile('code')" title="Programm speichern"><span role="img" aria-hidden="true" class="fa-solid fa-download"></span> Programm speichern</a>
+                    <a id="load" onclick="loadFile('code')" title="Programm laden"><span role="img" aria-hidden="true" class="fa-solid fa-upload"></span> Programm laden</a>
                     <input type="file" id="file-input-code" accept=".karacode" />
                 </div>
                 <div id="blocklyArea" class="blocklyArea"></div>
