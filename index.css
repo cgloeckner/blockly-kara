@@ -173,12 +173,20 @@ input {
     background-color: rgb(255, 245, 235);
 }
 
-#toggle-blocks-code::before {
-    content: "📄 Code\00a0";
+#toggle-blocks-code .blocks-button {
+    display: none;
 }
 
-#rightbox.display-code #toggle-blocks-code::before {
-    content: "🧩 Blöcke\00a0";
+#toggle-blocks-code .code-button {
+    display: inline;
+}
+
+#rightbox.display-code #toggle-blocks-code .code-button {
+    display: none;
+}
+
+#rightbox.display-code #toggle-blocks-code .blocks-button {
+    display: inline;
 }
 
 #blocklyCodeContainer {

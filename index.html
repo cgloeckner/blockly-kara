@@ -7,6 +7,7 @@
     <link href="./prism.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="./fontawesome/css/fontawesome.min.css">
     <link rel="stylesheet" type="text/css" href="./fontawesome/css/solid.min.css">
+    <link rel="stylesheet" type="text/css" href="./fontawesome/css/brands.min.css">
     <script src="./scripts/staticScripts/layout.js"></script>
     <script src="./scripts/staticScripts/main.js"></script>
     <script src="./scripts/staticScripts/base64.js"></script>
@@ -79,7 +80,10 @@
                     <a id="save" onclick="saveFile('code')" title="Programm speichern"><span role="img" aria-hidden="true" class="fa-solid fa-download"></span> Programm speichern</a>
                     <a id="load" onclick="loadFile('code')" title="Programm laden"><span role="img" aria-hidden="true" class="fa-solid fa-upload"></span> Programm laden</a>
                     <input type="file" id="file-input-code" accept=".karacode" />
-                    <a id="toggle-blocks-code" class="blocks-active" onclick="toggleCodeDisplay()">anzeigen</a>
+                    <a id="toggle-blocks-code" class="blocks-active" onclick="toggleCodeDisplay()">
+                        <span class="blocks-button"><span role="img" aria-hidden="true" class="fa-solid fa-puzzle-piece"></span> Blöcke</span>
+                        <span class="code-button"><span role="img" aria-hidden="true" class="fa-brands fa-python"></span> Code</span>
+                        anzeigen</a>
                 </div>
                 <div id="blocklyArea" class="blocklyArea"></div>
                 <div id="blocklyDiv" class="display-blocks" style="position: absolute">
