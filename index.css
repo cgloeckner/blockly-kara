@@ -14,6 +14,7 @@ body {
     height: 97%;
     margin: 10px 10px 10px 10px;
     border: 0px;
+    font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", Ubuntu, Roboto, Helvetica, Arial, sans-serif;
 }
 
 .territory {
@@ -113,7 +114,6 @@ input {
     padding: 10px 5px;
     text-decoration: none;
     font-size: 17px;
-    font-family: Arial, Helvetica, sans-serif;
 }
 
 .topnav a:hover {
