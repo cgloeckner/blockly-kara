@@ -48,6 +48,7 @@ button {
     display: inline-block;
     padding: 5px;
     line-height: 1;
+    min-width: 20px;
     margin: 2px 5px;
     cursor: pointer;
     outline: none;
