@@ -5,6 +5,8 @@
     <link rel="icon" href="images/kara_bottom.png">
     <link rel="stylesheet" type="text/css" href="./index.css">
     <link href="./prism.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="./fontawesome/css/fontawesome.min.css">
+    <link rel="stylesheet" type="text/css" href="./fontawesome/css/solid.min.css">
     <script src="./scripts/staticScripts/layout.js"></script>
     <script src="./scripts/staticScripts/main.js"></script>
     <script src="./scripts/staticScripts/base64.js"></script>
@@ -36,24 +38,28 @@
         <div class="wrapper" id="wrapper">
             <div class="leftbox" id="leftbox">
                 <div class="buttons-top">
-                    <button id="saveButton" title="Welt speichern" onClick="saveFile('territory')"><img src="./images/speichern.png"></button>
-                    <button id="loadButton" title="Welt laden" onClick="loadFile('territory')"><img src="./images/laden.png"></button>
+                    <button id="saveButton" title="Welt speichern" onClick="saveFile('territory')">
+                        <span role="img" aria-hidden="true" class="fa-solid fa-download"></span> Speichern
+                    </button>
+                    <button id="loadButton" title="Welt laden" onClick="loadFile('territory')">
+                        <span role="img" aria-hidden="true" class="fa-solid fa-upload"></span> Laden
+                    </button>
                     <input type="file" id="file-input-territory" accept=".world" />
                     <div class="controls">
                         <input id="slider" title="20" type="range" min="0" max="100" value="20" step="5" oninput="setSpeed(this.value)" />
-                        <button id="playButton" title="Ausführen" onClick="runCode()"><img src="./images/play.png"></button>
-                        <button id="stopButton" title="Stopp" onClick="stopCode()"><img src="./images/stop.png"></button>
-                        <button id="pauseButton" title="Pause" onClick="pause()"><img id="pauseResumeImg" src="./images/pause.png"></button>
-                        <button id="resetButton" title="Reset" onClick="reset();"><img src="./images/reset.png"></button>
+                        <button id="playButton" title="Programm ausführen" onClick="runCode()"><span role="img" aria-hidden="true" aria-label="Programm ausführen" class="fa-solid fa-play"></span></button>
+                        <button id="pauseButton" title="Programm pausieren" onClick="pause()"><span role="img" aria-hidden="true" aria-label="Programm pausieren" class="fa-solid fa-pause"></span></button>
+                        <button id="stopButton" title="Programm stoppen" onClick="stopCode()"><span role="img" aria-hidden="true" aria-label="Programm stoppen" class="fa-solid fa-stop"></span></button>
+                        <button id="resetButton" title="Welt zurücksetzen" onClick="reset()"><span role="img" aria-hidden="true" aria-label="Welt zurücksetzen" class="fa-solid fa-rotate-left"></span></button>
                     </div>
                 </div>
                 <canvas id="territoryId" class="territory" ondrop="drop(event)" ondragover="allowDrop(event)"></canvas>
                 <div class="buttons-bottom">
                     <div class="grid">
-                        <img src="./images/groesse.png" id="size">
+                        Größe
                         <input type="number" class="spinner" name="row" value="9" min="2" max="20" id="row" required>
                         <input type="number" class="spinner" name="column" min="2" id="column" required>
-                        <button type="submit" title="Bestätigen: Größe der Welt ändern" value="Ok" class="okbutton" onclick="resizeTerritory()"><img src="images/ok.png"></button>
+                        <button type="submit" title="Bestätigen: Größe der Welt ändern" value="Ok" class="okbutton" onclick="resizeTerritory()">OK</button>
                     </div>
                     <button class="element" title="Stumpf platzieren" id="tree"><img src="./images/stump_2.png" id="treeImage" alt="stump" draggable="true" ondragstart="drag(event)" ontouchstart="dragTouch(event)"></button>
                     <button class="element" title="Kleeblatt platzieren" id="clover"><img src="./images/clover.png" id="leafImage" alt="clover" draggable="true" ondragstart="drag(event)" ontouchstart="dragTouch(event)"></button>
@@ -70,8 +76,8 @@
             </div>
             <div class="rightbox" id="rightbox">
                 <div class="topnav" id="topnav">
-                    <a id="save" onclick="saveFile('code')">Programm speichern</a>
-                    <a id="load" onclick="loadFile('code')">Programm laden</a>
+                    <a id="save" onclick="saveFile('code')" title="Programm speichern"><span role="img" aria-hidden="true" class="fa-solid fa-download"></span> Programm speichern</a>
+                    <a id="load" onclick="loadFile('code')" title="Programm laden"><span role="img" aria-hidden="true" class="fa-solid fa-upload"></span> Programm laden</a>
                     <input type="file" id="file-input-code" accept=".karacode" />
                     <a id="toggle-blocks-code" class="blocks-active" onclick="toggleCodeDisplay()">anzeigen</a>
                 </div>
